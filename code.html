@@ -29,41 +29,41 @@
 
 <body>
     <header>
-           <nav class="navbar navbar-expand-lg navbar-dark">
-               <div class="container-fluid">
-                   <a class="navbar-brand" href="/index.html">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index.html">
                     <img src="/img/Willicons/logoBlu.png" height="42" alt="developer logo" />
-                    App Name
+                    FIZZ BUZZ
                 </a>
-                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                       aria-label="Toggle navigation">
-                       <span class="navbar-toggler-icon"></span>
-                   </button>
-                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                           <li class="nav-item">
-                               <a class="nav-link" href="/index.html">Home</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link" href="/app.html">The App</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link" target="_blank" href="https://github.com/Fjeldhammer">The Repo</a>
-                           </li>
-                           <li class="nav-item">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/app.html">The App</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://github.com/Fjeldhammer">The Repo</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" target="_blank" href="https://fjeldhammer.netlify.app/">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" target="_blank" href="#">Blog</a>
-                            </li>
-                       </ul>
-                   </div>
-               </div>
-           </nav>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="#">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main class="container py-3">
@@ -89,11 +89,24 @@
                 </pre>
             </div>
             <div class="col-12 col-lg-4">
-                <p>The Code is structured in one function</p>
-                <h5>displayMessage</h5>
+                <p>The Code is structured in three functions</p>
+                <h5>getValues</h5>
                 <p>
-                    Shows a SweetAlert with the value of the <code>message</code>
-                    variable
+                    The function 'getValues' begins by assigning the starting and ending values input by the app user.
+                    It assigns the values as integers, then applying Boolean logic by using If/Then/Else statements, it
+                    validates the user input as appropriate for the scope of the application. It then assigns the
+                    validated input as the starting and ending numbers for the next function.
+
+                </p>
+                <h5>generateNumbers</h5>
+                <p>
+                    The function 'generateNumbers' takes the starting and ending numbers validated by the first
+                    function, and creates a group of numbers using a 'For Loop' which takes the starting number and adds
+                    1 to it as it loops through the app. It pushes these numbers, one-at-a-time,
+                </p>
+                <h5>displayNumbers</h5>
+                <p>
+                    The function 'displayNumbers'
                 </p>
 
             </div>

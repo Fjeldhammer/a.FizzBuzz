@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>App Name: A Coding Challenge</title>
+    <title>FIZZ BUZZ: A Coding Challenge</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -29,7 +29,7 @@
                <div class="container-fluid">
                    <a class="navbar-brand" href="/index.html">
                     <img src="/img/Willicons/logoBlu.png" height="42" alt="developer logo" />
-                    App Name
+                    FIZZ BUZZ
                 </a>
                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -63,16 +63,58 @@
     </header>
 
     <main class="container py-3">
-        <h1>APP UI GOES HERE</h1>
-
-        <input class="form-control" 
-            id="message" 
-            placeholder="Enter a message" 
-            type="text" />
-
-        <button class="btn btn-primary my-3" id="btnSubmit" type="button">
-            Display Message
-        </button>
+        <div class="row row-cols-1 row-cols-md-2 gy-2">
+            <div class="col col-lg-5 col-xl-4 border-end border-start border-2 border-info-subtle">
+                <h1 class="display-5">FIZZ BUZZ: A Coding Challenge</h1>
+                <p class="lead">
+                    Where Buzz gets Fizzy with it! FIZZ BUZZ is a JavaScript coding challenge using loops. 
+                    The objective is to write a program which, when given two user input values, displays numbers 
+                    from 1-100. When a number is divisible by the first value, the program displays <strong>Fizz</strong> 
+                    instead. When a number is divisible by the second value, the program displays <strong>Buzz</strong> 
+                    instead. And when a number is divisible by both values, the program displays <strong>FizzBuzz</strong>.
+                </p>
+                <h2 class="mt-5 border-bottom border-2 border-info-subtle display-6">Instructions</h2>
+                <p>
+                    Enter a <STRONG>Fizz</STRONG> value, a <STRONG>Buzz</STRONG> and a <STRONG>Stop</STRONG> value. Press the button
+                    to see the results.
+                </p>
+            </div>
+            <div class="col">
+                <h5>Enter Values:</h5>
+                <form action="#" class="row g-2">
+                    <div class="col-6 col-md-4 col-xl-3">
+                        <label class="form-label" for="fizzValue">Fizz Value</label>
+                        <input class="form-control" id="fizzValue" name="fizzValue" type="number"
+                            placeholder="Fizz Value" value="3" aria-label="Fizz Value" />
+                    </div>
+                    <div class="col-6 col-md-4 col-xl-3">
+                        <label class="form-label" for="buzzValue">Buzz Value</label>
+                        <input class="form-control" id="buzzValue" name="buzzValue" type="number"
+                            placeholder="Buzz Value" value="5" aria-label="Buzz Value" />
+                    </div>
+                    <div class="col-6 col-md-4 col-xl-3 text-nowrap">
+                        <label class="form-label" for="stopValue"> Stop Value (max 5000)</label>
+                        <input class="form-control" id="stopValue" name="stopValue" type="number"
+                            placeholder="Stop Value" value="100" aria-label="Stop Value" />
+                    </div>
+                    <div class="col-6 col-xl-3 d-flex justify-content-center">
+                        <button class="btn btn-primary btn-lg text-nowrap m-4" id="btnSubmit" type="button">
+                            <span>Get Fizzy!</span>
+                        </button>
+                    </div>
+                </form>
+                <h2 class="mt-2 mt-md-3 mt-lg-4 mt-xl-5 border-bottom border-2 border-info-subtle">Results</h2>
+                <div class="card p-3 mt-3 shadow-sm">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <tbody id="results">
+                                <!-- Results go here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer container-fluid py-3">
