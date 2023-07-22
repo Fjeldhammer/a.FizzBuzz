@@ -27,13 +27,13 @@ function getValues() {
             backdrop: false
         });
 
-//    } else if (stopNumber > 4200) {
-//        Swal.fire({
-//            title: 'Oops!',
-//            text: 'Unfortunately. the Stop number must be less than 4200',
-//            icon: 'error',
-//            backdrop: false
-//        });
+    } else if (stopNumber > 4200) {
+        Swal.fire({
+            title: 'Oops!',
+            text: 'Unfortunately. the Stop number must be less than 4200',
+            icon: 'error',
+            backdrop: false
+        });
 
     } else {
         // display the numbers if everything is ok
