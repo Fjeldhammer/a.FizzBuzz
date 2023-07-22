@@ -11,50 +11,59 @@ function getValues() {
     stopNumber = Number(stopNumber);
 
     // check if input numbers are actual numbers
-//    if (isNaN(fizzNumber) == true || isNaN(buzzNumber) == true || isNaN(stopNumber) == true) {
-//        Swal.fire({
-//            title: 'Oops!',
-//            text: 'FizzBuzz only works with numbers',
-//            icon: 'error',
-//            backdrop: false
-//        });
+    if (isNaN(fizzNumber) == true || isNaN(buzzNumber) == true || isNaN(stopNumber) == true) {
+        Swal.fire({
+            title: 'Oops!',
+            text: 'Unfortunately, FizzBuzz only works with numbers',
+            icon: 'error',
+            backdrop: false
+        });
         // make sure the stop value is greater than either start value
-//    } else if (fizzNumber > stopNumber || fizzNumber > buzzNumber || buzzNumber > stopNumber) {
+    } else if (fizzNumber > stopNumber || buzzNumber > stopNumber) {
+        Swal.fire({
+            title: 'Oops!',
+            text: 'Unfortunately. both Fizz & Buzz numbers must be less than the Stop number',
+            icon: 'error',
+            backdrop: false
+        });
+
+//    } else if (stopNumber > 4200) {
 //        Swal.fire({
 //            title: 'Oops!',
-//            text: 'The starting Fizz number must be less than the starting Buzz number, and both Fizz & Buzz numbers must be less than the Stop number',
+//            text: 'Unfortunately. the Stop number must be less than 4200',
 //            icon: 'error',
 //            backdrop: false
 //        });
-//    } else {
-        // display the numbers if everything is ok
-        range = generateFizzBuzz(stopNumber);
 
-        displayFizzBuzz(range, fizzNumber, buzzNumber);
-//    }
+    } else {
+        // display the numbers if everything is ok
+        let numberArray = generateFizzBuzz(fizzNumber, buzzNumber, stopNumber);
+
+        displayFizzBuzz(numberArray);
+    }
 }
 
 // Business logic -creates every number in the input range
 // check if divisible by both values if so push fizzbuzz
 // check if divisible by either value if so push either fizz or buzz as appropriate
-function generateFizzBuzz(fizzNumber, buzzNumber, stopNumber) {
+function generateFizzBuzz(fizz, buzz, stop) {
 
     let range = [];
 
-    for (let number = 1; number <= stopNumber; number = number + 1) {
+    for (let number = 1; number <= stop; number++) {
 
-//        if (number % fizzNumber == 0 && number % buzzNumber == 0) {
-//            range.push('FIZZBUZZ');
+        if (number % fizz == 0 && number % buzz == 0) {
+            range.push('FIZZBUZZ');
 
-//        } else if (number % fizzNumber == 0) {
-//            range.push('FIZZ');
+        } else if (number % fizz == 0) {
+            range.push('FIZZ');
 
-//        } else if (number % buzzNumber == 0) {
-//            range.push('BUZZ');
+        } else if (number % buzz == 0) {
+            range.push('BUZZ');
 
-//        } else {
+        } else {
             range.push(number);
-//        }
+        }
     }
 
     return range;
@@ -66,17 +75,17 @@ function displayFizzBuzz(numbersToDisplay) {
 
     let tableHtml = '';
 
-    for (let index = 0; index < numbersToDisplay.length; index = index + 1) {
+    for (let index = 0; index < numbersToDisplay.length; index++) {
 
         let currentNumber = numbersToDisplay[index];
 
         let className = '';
 
-        if (currentNumber % 3 == 0 && number % 5 == 0) {
+        if (currentNumber % fizzValue == 0 && currentNumber % buzzValue == 0) {
             className ='FIZZBUZZ';
-        } else if (currentNumber % 3 == 0) {
+        } else if (currentNumber % fizzValue == 0) {
             className ='FIZZ';
-        } else if (currentNumber % 5 == 0) {
+        } else if (currentNumber % buzzValue == 0) {
             className ='BUZZ';
         }
 
