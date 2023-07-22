@@ -72,18 +72,82 @@
             <div class="col-12 col-lg-8">
                 <pre class="line-numbers">
                     <code class="language-js">
-                        function displayMessage() {
-                            let inputBox = document.getElementById('message');
+                        function getValues() {
+                            let fizzNumber = document.getElementById('fizzValue').value;
+                            let buzzNumber = document.getElementById('buzzValue').value;
+                            let stopNumber = document.getElementById('stopValue').value;
+
+                            fizzNumber = Number(fizzNumber);
+                            buzzNumber = Number(buzzNumber);
+                            stopNumber = Number(stopNumber);
+
+                            if (isNaN(fizzNumber) == true || isNaN(buzzNumber) == true || isNaN(stopNumber) == true) {
+                                Swal.fire({
+                                    title: 'Oops!',
+                                    text: 'Unfortunately, FizzBuzz only works with numbers',
+                                    icon: 'error',
+                                    backdrop: false
+                                });
+                            } else if (fizzNumber > stopNumber || buzzNumber > stopNumber) {
+                                Swal.fire({
+                                    title: 'Oops!',
+                                    text: 'Unfortunately, both Fizz & Buzz numbers must be less than the Stop number',
+                                    icon: 'error',
+                                    backdrop: false
+                                });
+                            } else if (stopNumber > 4200) {
+                                Swal.fire({
+                                    title: 'Oops!',
+                                    text: 'Unfortunately, the Stop number must be less than 4200',
+                                    icon: 'error',
+                                    backdrop: false
+                                });
+                            } else {
+                                let numberArray = generateFizzBuzz(fizzNumber, buzzNumber, stopNumber);
+                                displayFizzBuzz(numberArray);
+                            }
+                        }
+
+                        function generateFizzBuzz(fizz, buzz, stop) {
                         
-                            let message = inputBox.value;
+                            let range = [];
                         
-                            Swal.fire(
-                                {
-                                    backdrop: false,
-                                    title: 'App Name',
-                                    text: message
+                            for (let number = 1; number <= stop; number++) {
+                        
+                                if (number % fizz == 0 && number % buzz == 0) {
+                                    range.push('FIZZBUZZ');
+                                } else if (number % fizz == 0) {
+                                    range.push('FIZZ');
+                                } else if (number % buzz == 0) {
+                                    range.push('BUZZ');
+                                } else {
+                                    range.push(number);
                                 }
-                            );
+                            }
+                            return range;
+                        }
+
+                        function displayFizzBuzz(numbersToDisplay) {
+                        
+                            let tableHtml = '';
+                        
+                            for (let index = 0; index < numbersToDisplay.length; index++) {
+                        
+                                let currentNumber = numbersToDisplay[index];
+                                let className = '';
+                        
+                                if (currentNumber == 'FIZZBUZZ') {
+                                    className = 'FIZZBUZZ';
+                                } else if (currentNumber == 'FIZZ') {
+                                    className = 'FIZZ';
+                                } else if (currentNumber == 'BUZZ') {
+                                    className = 'BUZZ';
+                                }
+                        
+                                let tableRowHtml = `<tr><td class="${className}">${currentNumber}</td></tr>`;
+                                tableHtml = tableHtml + tableRowHtml;
+                            }
+                            document.getElementById('results').innerHTML = tableHtml;
                         }
                     </code>
                 </pre>

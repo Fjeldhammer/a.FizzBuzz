@@ -22,7 +22,7 @@ function getValues() {
     } else if (fizzNumber > stopNumber || buzzNumber > stopNumber) {
         Swal.fire({
             title: 'Oops!',
-            text: 'Unfortunately. both Fizz & Buzz numbers must be less than the Stop number',
+            text: 'Unfortunately, both Fizz & Buzz numbers must be less than the Stop number',
             icon: 'error',
             backdrop: false
         });
@@ -30,7 +30,7 @@ function getValues() {
     } else if (stopNumber > 4200) {
         Swal.fire({
             title: 'Oops!',
-            text: 'Unfortunately. the Stop number must be less than 4200',
+            text: 'Unfortunately, the Stop number must be less than 4200',
             icon: 'error',
             backdrop: false
         });
