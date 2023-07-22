@@ -81,12 +81,12 @@ function displayFizzBuzz(numbersToDisplay) {
 
         let className = '';
 
-        if (currentNumber % fizzValue == 0 && currentNumber % buzzValue == 0) {
-            className ='FIZZBUZZ';
-        } else if (currentNumber % fizzValue == 0) {
-            className ='FIZZ';
-        } else if (currentNumber % buzzValue == 0) {
-            className ='BUZZ';
+        if (currentNumber == 'FIZZBUZZ') {
+            className = 'FIZZBUZZ';
+        } else if (currentNumber == 'FIZZ') {
+            className = 'FIZZ';
+        } else if (currentNumber == 'BUZZ') {
+            className = 'BUZZ';
         }
 
         let tableRowHtml = `<tr><td class="${className}">${currentNumber}</td></tr>`; // "<tr><td>1</td></tr>"
