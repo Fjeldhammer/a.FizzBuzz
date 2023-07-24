@@ -3,17 +3,31 @@
 // then passing the values to the other functions
 function getValues() {
     //get the fizz number
-    let fizz = 3;
+    let fizz = document.getElementById('fizzValue').value;
     //get the buzz number
-    let buzz = 5;
+    let buzz = document.getElementById('buzzValue').value;
     //get the end number
-    let end = 100;
-    // todo: make sure they're valid
+    let end = document.getElementById('stopValue').value;
 
-    // generate my fizzbuzz
+    // todo: make sure they're valid
+    fizz =parseInt(fizz);
+    buzz = parseInt(buzz);
+    end = parseInt(end);
+
+    if (Number.isInteger(fizz) && Number.isInteger(buzz) && Number.isInteger(end) && end <= 4200) {
+        // generate my fizzbuzz
     let fizzBuzzes = generateFizzBuzz(fizz, buzz, end);
     // display my fizzbuzz
     displayFizzBuzz(fizzBuzzes);
+
+    } else {
+        Swal.fire({
+            icon: 'error',
+            backdrop: false,
+            title: 'oh no!',
+            text: 'Please enter valid integers and make sure the end number is below 4200.'
+        });
+    }
 }
 
 // create an array of values according
