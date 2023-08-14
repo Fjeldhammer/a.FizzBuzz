@@ -87,17 +87,23 @@ body {
     padding-left: .5rem;
 }
 
-.FIZZ {
+#results .col {
+    border: solid 1px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: .25rem;
+}
+
+.Fizz {
     background-color: #77c6ff !important;
     font-weight: bold;
 }
 
-.BUZZ {
+.Buzz {
     background-color: yellow !important;
     font-weight: bold;
 }
 
-.FIZZBUZZ {
+.FizzBuzz {
     font-weight: bolder;
     background-color: limegreen !important;
 }

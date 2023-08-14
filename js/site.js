@@ -1,99 +1,85 @@
-// Get the numbers from our form inputs
-// ENTRY POINT
-// Controller Function
+// getting numnbers from the page,
+// validate the inputs we collected,
+// then passing the values to the other functions
 function getValues() {
-    let fizzNumber = document.getElementById('fizzValue').value;
-    let buzzNumber = document.getElementById('buzzValue').value;
-    let stopNumber = document.getElementById('stopValue').value;
+    //get the fizz number
+    let fizz = document.getElementById('fizzValue').value;
+    //get the buzz number
+    let buzz = document.getElementById('buzzValue').value;
+    //get the end number
+    let end = document.getElementById('stopValue').value;
 
-    fizzNumber = Number(fizzNumber);
-    buzzNumber = Number(buzzNumber);
-    stopNumber = Number(stopNumber);
+    // todo: make sure they're valid
+    fizz =parseInt(fizz);
+    buzz = parseInt(buzz);
+    end = parseInt(end);
 
-    // check if input numbers are actual numbers
-    if (isNaN(fizzNumber) == true || isNaN(buzzNumber) == true || isNaN(stopNumber) == true) {
-        Swal.fire({
-            title: 'Oops!',
-            text: 'Unfortunately, FizzBuzz only works with numbers',
-            icon: 'error',
-            backdrop: false
-        });
-        // make sure the stop value is greater than either start value
-    } else if (fizzNumber > stopNumber || buzzNumber > stopNumber) {
-        Swal.fire({
-            title: 'Oops!',
-            text: 'Unfortunately, both Fizz & Buzz numbers must be less than the Stop number',
-            icon: 'error',
-            backdrop: false
-        });
-
-    } else if (stopNumber > 4200) {
-        Swal.fire({
-            title: 'Oops!',
-            text: 'Unfortunately, the Stop number must be less than 4200',
-            icon: 'error',
-            backdrop: false
-        });
+    if (Number.isInteger(fizz) && Number.isInteger(buzz) && Number.isInteger(end) && end <= 4200) {
+        // generate my fizzbuzz
+    let fizzBuzzes = generateFizzBuzz(fizz, buzz, end);
+    // display my fizzbuzz
+    displayFizzBuzz(fizzBuzzes);
 
     } else {
-        // display the numbers if everything is ok
-        let numberArray = generateFizzBuzz(fizzNumber, buzzNumber, stopNumber);
-
-        displayFizzBuzz(numberArray);
+        Swal.fire({
+            icon: 'error',
+            backdrop: false,
+            title: 'oh no!',
+            text: 'Please enter valid integers and make sure the end number is below 4200.'
+        });
     }
 }
 
-// Business logic -creates every number in the input range
-// check if divisible by both values if so push fizzbuzz
-// check if divisible by either value if so push either fizz or buzz as appropriate
-function generateFizzBuzz(fizz, buzz, stop) {
+// create an array of values according
+// to the FizzBuzz rules e.g. [1, 2, 'Fizz', 4, 'Buzz']
+function generateFizzBuzz(fizzValue, buzzValue, max) {
 
-    let range = [];
+    let fbArray = [];
 
-    for (let number = 1; number <= stop; number++) {
+    // check every number from 1 to "max"
+    for (let number = 1; number <= max; number++) {
+        // for each number: 
+        // -check if it is divisible by fizzValue
+        // -check if it is divisible by buzzValue
+        // -check if it is divisible by both
+        if (number % fizzValue == 0 && number % buzzValue == 0) {
 
-        if (number % fizz == 0 && number % buzz == 0) {
-            range.push('FIZZBUZZ');
+            fbArray.push('FizzBuzz');
 
-        } else if (number % fizz == 0) {
-            range.push('FIZZ');
+        } else if (number % fizzValue == 0) {
 
-        } else if (number % buzz == 0) {
-            range.push('BUZZ');
+            fbArray.push('Fizz');
+
+        } else if (number % buzzValue == 0) {
+
+            fbArray.push('Buzz');
 
         } else {
-            range.push(number);
+
+            fbArray.push(number);
+            // -then, put the right value into the array
+
         }
     }
-
-    return range;
+    return fbArray
+    // when I'm done, return that array
 }
 
-// put the numbers on the page
-// View Function
-function displayFizzBuzz(numbersToDisplay) {
+// take in an array of values, and display them on the page
+function displayFizzBuzz(fbArray) {
 
-    let tableHtml = '';
+    let fizzBuzzHTML = '';
 
-    for (let index = 0; index < numbersToDisplay.length; index++) {
+    for (let index = 0; index < fbArray.length; index++) {
 
-        let currentNumber = numbersToDisplay[index];
+        let value = fbArray[index];
 
-        let className = '';
+        fizzBuzzHTML += `<div class="col ${value}"> ${value} </div>`;
 
-        if (currentNumber == 'FIZZBUZZ') {
-            className = 'FIZZBUZZ';
-        } else if (currentNumber == 'FIZZ') {
-            className = 'FIZZ';
-        } else if (currentNumber == 'BUZZ') {
-            className = 'BUZZ';
-        }
-
-        let tableRowHtml = `<tr><td class="${className}">${currentNumber}</td></tr>`; // "<tr><td>1</td></tr>"
-
-        tableHtml = tableHtml + tableRowHtml;
     }
 
-    document.getElementById('results').innerHTML = tableHtml;
+    let resultsRow = document.getElementById('results');
+
+    resultsRow.innerHTML = fizzBuzzHTML;
 
 }
