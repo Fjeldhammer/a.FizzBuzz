@@ -153,26 +153,37 @@
                 </pre>
             </div>
             <div class="col-12 col-lg-4">
-                <p>The Code is structured in three functions</p>
+                <p>The Code is structured in three functions which create the "FizzBuzz" sequence highlighting the "Fizz", "Buzz", and "FizzBuzz" 
+                    combination results.</p>
                 <h5>getValues</h5>
-                <p>
-                    The function 'getValues' begins by assigning the starting and ending values input by the app user.
-                    It assigns the values as integers, then applying Boolean logic by using If/Then/Else statements, it
-                    validates the user input as appropriate for the scope of the application. It then assigns the
-                    validated input as the starting and ending numbers for the next function.
-
-                </p>
-                <h5>generateNumbers</h5>
-                <p>
-                    The function 'generateNumbers' takes the starting and ending numbers validated by the first
-                    function, and creates a group of numbers using a 'For Loop' which takes the starting number and adds
-                    1 to it as it loops through the app. It pushes these numbers, one-at-a-time,
-                </p>
+                <p> The function getValues is responsible for getting numbers from the page, validating the inputs collected, then passing the 
+                    values to the other functions.</p>
+                <p> Function getValues is the entry point for the program and acts as a controller. It begins by getting the values from "The App" 
+                    page user interface.  It declares the fizzNumber, buzzNumber, and stopNumber and assigns the values it rerieves from the 
+                    Fizz Value, Buzz Value, and Stop Value inputs </p>
+                <p> It then converts these values to numbers using the Number() function. If any of the values is not a
+                    valid number (e.g., if the user enters non-numeric characters), it displays an error message using
+                    the Swal library (SweetAlert), which shows a pop-up alert with the error message. If all values are
+                    valid numbers, it passes the validated number values to the generateFizzBuzz function.</p>
+                    <br>
+                <h5>generateFizzBuzz</h5>
+                <p>The function generateFizzBuzz takes the numberArray parameters (now listed as fizz, buzz, and stop) and declares the array 
+                    as "range". Then it uses a for loop to check every number from 1 to the maximum number in the numberArray, and it creates 
+                    an array of values according to the FizzBuzz rules (e.g. [1, 2, 'Fizz', 4, 'Buzz' etc.]). </p>
+                <p>Then an if-else statement pushes the each newly assigned value into it's place in the new array "range", which is then returned to 
+                    the getValues function.  Then the getValues function passes the new "numberArray" to the displayFizzBuzz function</p>
+                    <br>
                 <h5>displayNumbers</h5>
-                <p>
-                    The function 'displayNumbers'
-                </p>
-
+                <p> The function 'displayFizzBuzz' takes the numberArray (now called numbersToDisplay) and loops through each number in the array 
+                    and generates the correct location assignment (table row) in a new HTML table.</p>
+                <p>  If the number is divisible by both Fizz and Buzz, it creates a table row with the content "FizzBuzz".
+                    If the number is only divisible by Fizz, it creates a table row with the content "Fizz".
+                    If the number is only divisible by Buzz, it creates a table row with the content "Buzz".
+                    If the number is not divisible by either Fizz or Buzz, it creates a regular table row with the
+                    number itself as the content.
+                    After processing all numbers in the range, the function sets the inner HTML of an element with the
+                    ID 'results' to the generated tableHTML, effectively displaying the FizzBuzz results on the
+                    webpage.</p>
             </div>
         </div>
     </main>
