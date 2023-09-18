@@ -52,7 +52,8 @@
                             <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://github.com/Fjeldhammer/a.FizzBuzz">The Repo</a>
+                            <a class="nav-link" target="_blank" href="https://github.com/Fjeldhammer/a.FizzBuzz">The
+                                Repo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" target="_blank" href="https://fjeldhammer.netlify.app/">About</a>
@@ -153,30 +154,42 @@
                 </pre>
             </div>
             <div class="col-12 col-lg-4">
-                <p>The Code is structured in three functions which create the "FizzBuzz" sequence highlighting the "Fizz", "Buzz", and "FizzBuzz" 
+                <p>The Code is structured in three functions which create the "FizzBuzz" sequence highlighting the
+                    "Fizz", "Buzz", and "FizzBuzz"
                     combination results.</p>
                 <h5>getValues</h5>
-                <p> The function getValues is responsible for getting numbers from the page, validating the inputs collected, then passing the 
+                <p> The function getValues is responsible for getting numbers from the page, validating the inputs
+                    collected, then passing the
                     values to the other functions.</p>
-                <p> Function getValues is the entry point for the program and acts as a controller. It begins by getting the values from "The App" 
-                    page user interface.  It declares the fizzNumber, buzzNumber, and stopNumber and assigns the values it rerieves from the 
-                    Fizz Value, Buzz Value, and Stop Value inputs </p>
+                <p> Function getValues is the entry point for the program and acts as a controller. It begins by getting
+                    the values from "The App"
+                    page user interface. It declares the fizzNumber, buzzNumber, and stopNumber and assigns the values
+                    it rerieves from the
+                    Fizz Value, Buzz Value, and Stop Value inputs. I hardset the max value limit to 4200 to preserve
+                    browser resources for the user
+                    while providing a wide range of possible choices. </p>
                 <p> It then converts these values to numbers using the Number() function. If any of the values is not a
                     valid number (e.g., if the user enters non-numeric characters), it displays an error message using
                     the Swal library (SweetAlert), which shows a pop-up alert with the error message. If all values are
                     valid numbers, it passes the validated number values to the generateFizzBuzz function.</p>
-                    <br>
+                <br>
                 <h5>generateFizzBuzz</h5>
-                <p>The function generateFizzBuzz takes the numberArray parameters (now listed as fizz, buzz, and stop) and declares the array 
-                    as "range". Then it uses a for loop to check every number from 1 to the maximum number in the numberArray, and it creates 
+                <p>The function generateFizzBuzz takes the numberArray parameters (now listed as fizz, buzz, and stop)
+                    and declares the array
+                    as "range". Then it uses a for loop to check every number from 1 to the maximum number in the
+                    numberArray, and it creates
                     an array of values according to the FizzBuzz rules (e.g. [1, 2, 'Fizz', 4, 'Buzz' etc.]). </p>
-                <p>Then an if-else statement pushes the each newly assigned value into it's place in the new array "range", which is then returned to 
-                    the getValues function.  Then the getValues function passes the new "numberArray" to the displayFizzBuzz function</p>
-                    <br>
+                <p>Then an if-else statement pushes the each newly assigned value into it's place in the new array
+                    "range", which is then returned to
+                    the getValues function. Then the getValues function passes the new "numberArray" to the
+                    displayFizzBuzz function.</p>
+                <br>
                 <h5>displayNumbers</h5>
-                <p> The function 'displayFizzBuzz' takes the numberArray (now called numbersToDisplay) and loops through each number in the array 
+                <p> The function 'displayFizzBuzz' takes the numberArray (now called numbersToDisplay) and loops through
+                    each number in the array
                     and generates the correct location assignment (table row) in a new HTML table.</p>
-                <p>  If the number is divisible by both Fizz and Buzz, it creates a table row with the content "FizzBuzz".
+                <p> If the number is divisible by both Fizz and Buzz, it creates a table row with the content
+                    "FizzBuzz".
                     If the number is only divisible by Fizz, it creates a table row with the content "Fizz".
                     If the number is only divisible by Buzz, it creates a table row with the content "Buzz".
                     If the number is not divisible by either Fizz or Buzz, it creates a regular table row with the
@@ -199,8 +212,10 @@
                 </div>
                 <div class="col text-center text-lg-end">
                     <a href="#"><i class="socialicons bi bi-linkedin"></i></a>
-                    <a target="_blank" href="https://github.com/Fjeldhammer/a.FizzBuzz"><i class="socialicons bi bi-github"></i></a>
-                    <a target="_blank" href="https://twitter.com/FjeldHammer"><i class="socialicons bi bi-twitter"></i></a>
+                    <a target="_blank" href="https://github.com/Fjeldhammer/a.FizzBuzz"><i
+                            class="socialicons bi bi-github"></i></a>
+                    <a target="_blank" href="https://twitter.com/FjeldHammer"><i
+                            class="socialicons bi bi-twitter"></i></a>
                     <a href="mailto:thefjelf@gmail.com"><i class=" socialicons bi bi-envelope-at-fill"></i></a>
                 </div>
             </div>
