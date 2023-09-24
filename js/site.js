@@ -25,7 +25,7 @@ function getValues() {
             icon: 'error',
             backdrop: false,
             title: 'oh no!',
-            text: 'Please ent valid integers and make sure the end number is below 4200.'
+            text: 'Please enter valid integers and make sure the end number is below 4200.'
         });
     }
 }
