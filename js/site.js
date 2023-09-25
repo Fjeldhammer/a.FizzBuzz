@@ -34,7 +34,7 @@ function getValues() {
 // to the FizzBuzz rules e.g. [1, 2, 'Fizz', 4, 'Buzz']
 function generateFizzBuzz(fizzValue, buzzValue, max) {
 
-    let fbArray = ();
+    let fbArray = [];
 
     // check every number from 1 to "max"
     for (let number = 1; number <= max; number++) {
